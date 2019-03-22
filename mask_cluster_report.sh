@@ -5,7 +5,7 @@
    #         FILE: mask_cluster_report.sh /path/to/cluster-report.tar.gz
    #
    #        USAGE: 1) Run it. 
-   #			   2) Look for file in same directory as original cluster report called cluster-report-*.masked.tar.gz
+   #		   2) Look for file in same directory as original cluster report called cluster-report-*.masked.tar.gz
    #
    #  DESCRIPTION: Exports all MemSQL stored procedures 
    #      OPTIONS:  
