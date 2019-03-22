@@ -1,5 +1,7 @@
 # mask_cluster_report
-Removes the IP addresses from the MemSQL cluster report.  Uses Perl regex for portability and consistency.  Designed to run on Linux, but also tested on MacOS
+## Removes the IP addresses from the MemSQL cluster report.  
+
+Uses Perl regex for portability and consistency.  Designed to run on Linux, but also tested on MacOS.
 
 ### Use: 
 `mask_cluster_report.sh /path/to/cluster-report.tar.gz`
