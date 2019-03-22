@@ -11,7 +11,7 @@
    #      OPTIONS:  
    # REQUIREMENTS: MemSQL
    #       AUTHOR: Mike Czabator (mczabator@memsql.com)
-   #      CREATED: 03.21.2010
+   #      CREATED: 03.21.2019
    #      UPDATED:      
    #      VERSION: 1.0
    #      EUL    : THIS CODE IS OFFERED ON AN “AS-IS” BASIS AND NO WARRANTY, EITHER EXPRESSED OR IMPLIED, IS GIVEN. 
