@@ -33,32 +33,33 @@ return 0
 
 function isIn()
 {
-if [ -z "$1" ]; then
-    return
-fi
+	if [ -z "$1" ]; then
+	    return
+	fi
 
-for i in "${EXPECTED_ARGS[@]}"; do
-    if [ "$i" == "$1" ];then
-        return 1
-    fi
-done
+	for i in "${EXPECTED_ARGS[@]}"; do
+	    if [ "$i" == "$1" ];then
+	        return 1
+	    fi
+	done
 
 return 0
 }
 
 function rename_dir()
 {
+	for dir in $filepath_noext/$filename_noext/*    
+	do
+	    dir_path=${dir%*/}      # remove the trailing "/"
+	    dir_name=${dir_path##*/}    # print everything after the final "/"
+	    new_dir_name=`echo $dir_name |  perl -ne 's/(?!0\.0\.0\.0|\d{1,3}.0\.0\.1)(\d{1,3}\.){2}\d{1,3}/x.x.x/g; print $_'`
+	    mv $dir_path $filepath_noext/$filename_noext/$new_dir_name
 
-for dir in $filepath_noext/$filename_noext/*    
-do
-    dir_path=${dir%*/}      # remove the trailing "/"
-    dir_name=${dir_path##*/}    # print everything after the final "/"
-    new_dir_name=`echo $dir_name |  perl -ne 's/(?!0\.0\.0\.0|\d{1,3}.0\.0\.1)(\d{1,3}\.){2}\d{1,3}/x.x.x/g; print $_'`
-    mv $dir_path $filepath_noext/$filename_noext/$new_dir_name
-
-done
+	done
 }
 
+
+# start 
 EXPECTED_ARGS=( 1 ) # number of args expected
 E_BADARGS=65
 
