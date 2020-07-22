@@ -12,7 +12,8 @@
    # REQUIREMENTS: MemSQL
    #       AUTHOR: Mike Czabator (mczabator@memsql.com)
    #      CREATED: 03.21.2019
-   #      UPDATED:      
+   #      UPDATED: 
+   #               07.22.2020 : updated to support memsql toolbox report style     
    #      VERSION: 1.0
    #      EUL    : THIS CODE IS OFFERED ON AN “AS-IS” BASIS AND NO WARRANTY, EITHER EXPRESSED OR IMPLIED, IS GIVEN. 
    #           THE AUTHOR EXPRESSLY DISCLAIMS ALL WARRANTIES OF ANY KIND, WHETHER EXPRESS OR IMPLIED.
@@ -25,7 +26,7 @@
 
 function check_file_type()
 {
-	if [[ "$1" == *"cluster-report-"*"tar.gz" ]]; then
+	if [[ "$1" == *"cluster-report-"*"tar.gz" ]] || [[ "$1" == "report-"*".tar.gz" ]]; then
 		return 1
 	fi
 return 0 
@@ -48,12 +49,12 @@ return 0
 
 function rename_dir()
 {
-	for dir in $filepath_noext/$filename_noext/*    
+	for dir in $filepath_noext/$filename_noext/*/    
 	do
 	    dir_path=${dir%*/}      # remove the trailing "/"
 	    dir_name=${dir_path##*/}    # print everything after the final "/"
 	    new_dir_name=`echo $dir_name |  perl -ne 's/(?!0\.0\.0\.0|\d{1,3}.0\.0\.1)(\d{1,3}\.){2}\d{1,3}/x.x.x/g; print $_'`
-	    mv $dir_path $filepath_noext/$filename_noext/$new_dir_name
+            mv $dir_path $filepath_noext/$filename_noext/$new_dir_name
 
 	done
 }
