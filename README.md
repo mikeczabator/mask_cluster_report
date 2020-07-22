@@ -3,6 +3,8 @@
 
 Uses Perl regex for portability and consistency.  Designed to run on Linux, but also tested on MacOS.
 
+note : 7/2020 : now supports memsql toolbox reports
+
 ### Use: 
 `mask_cluster_report.sh /path/to/cluster-report.tar.gz`
 
